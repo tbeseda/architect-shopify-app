@@ -1,9 +1,10 @@
 @app
-begin-app
+shopify-admin-app
 
 @static
 
 @http
+post /shopify/auth
 
 @tables
 data

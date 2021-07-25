@@ -2,39 +2,12 @@
   "name": "begin-shopify-admin-app",
   "version": "0.0.0",
   "description": "",
-  "arc": {
-    "app": "shopify-admin-app",
-    "http": [
-      {
-        "/shopify/install": {
-          "method": "get",
-          "src": "/shopify/install"
-        }
-      },
-      {
-        "/shopify/auth": {
-          "method": "post",
-          "src": "/shopify/auth"
-        }
-      }
-    ],
-    "tables": [
-      {
-        "data": {
-          "scopeID": "*String",
-          "dataID": "**String",
-          "ttl": "TTL"
-        }
-      }
-    ]
-  },
   "scripts": {
     "start": "npx sandbox"
   },
   "dependencies": {
     "@architect/functions": "^3.13.9",
-    "@begin/data": "^2.0.1",
-    "tiny-json-http": "^7.3.0"
+    "@begin/data": "^2.0.1"
   },
   "devDependencies": {
     "@architect/architect": "^8.7.4",
