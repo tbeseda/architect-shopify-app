@@ -1,32 +1,20 @@
 {
-  "name": "begin-app",
+  "name": "begin-shopify-admin-app",
   "version": "0.0.0",
-  "description": "Begin basic CRUD app",
+  "description": "",
   "arc": {
-    "app": "crud-app",
+    "app": "shopify-admin-app",
     "http": [
       {
-        "/todos": {
-          "method": "post",
-          "src": "/todos/create"
-        }
-      },
-      {
-        "/todos": {
+        "/shopify/install": {
           "method": "get",
-          "src": "/todos/read"
+          "src": "/shopify/install"
         }
       },
       {
-        "/todos/delete": {
+        "/shopify/auth": {
           "method": "post",
-          "src": "/todos/delete"
-        }
-      },
-      {
-        "/todos/:id": {
-          "method": "post",
-          "src": "/todos/update"
+          "src": "/shopify/auth"
         }
       }
     ],
@@ -45,8 +33,11 @@
   },
   "dependencies": {
     "@architect/functions": "^3.13.9",
-    "@architect/sandbox": "^3.4.0",
     "@begin/data": "^2.0.1",
     "tiny-json-http": "^7.3.0"
+  },
+  "devDependencies": {
+    "@architect/architect": "^8.7.4",
+    "@architect/sandbox": "^3.4.0"
   }
 }
