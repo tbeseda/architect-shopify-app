@@ -2,9 +2,11 @@
 shopify-admin-app
 
 @static
+folder public
 
 @http
-post /shopify/auth
+get /shopify/auth
+post /shopify/auth/callback
 
 @tables
 data
