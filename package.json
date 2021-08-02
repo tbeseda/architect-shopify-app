@@ -7,10 +7,6 @@
     "dev": "npm start"
   },
   "dependencies": {
-    "@architect/functions": "^3.13.9",
-    "@begin/data": "^2.0.1"
-  },
-  "devDependencies": {
     "@architect/architect": "^8.7.4",
     "@architect/sandbox": "^3.4.0"
   }

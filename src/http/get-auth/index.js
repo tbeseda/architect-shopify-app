@@ -3,9 +3,9 @@ const begin = require('@architect/functions');
 
 async function handler(request) {
   const { query } = request;
-  const key = process.env.SHOPIFY_API_PUBLIC_KEY;
-  const scopes = process.env.SHOPIFY_AUTH_SCOPES;
-  const redirectUri = process.env.SHOPIFY_AUTH_CALLBACK_URL;
+  const key = process.env.SHOPIFY_API_KEY;
+  const scopes = process.env.SCOPES;
+  const redirectUri = `${process.env.HOST}/auth/callback`;
   const nonce = crypto.randomBytes(16).toString('base64');
 
   if (!query.shop)
