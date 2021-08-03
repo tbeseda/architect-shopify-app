@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx sandbox",
     "dev": "npm start",
-    "test": "tape -r esm 'test/**/*.test.js' | tap-spec-emoji"
+    "test": "tape -r esm 'test/**/*.test.js'"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
