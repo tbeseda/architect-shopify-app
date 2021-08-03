@@ -1,4 +1,4 @@
-const test = require('tape');
+const test = require('tape-catch');
 const Axios = require('axios').default;
 const sandbox = require('@architect/sandbox');
 
