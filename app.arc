@@ -10,4 +10,5 @@ folder public
 get /auth
 get /auth/callback
 
-get /admin
+get /dashboard
+get /api/test

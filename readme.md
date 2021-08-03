@@ -1,14 +1,6 @@
-<img src="https://static.begin.app/node-crud/readme-banner.png" width="641">
+# WIP!
 
-[![Begin build status](https://buildstatus.begin.app/nature-bvg/status.svg)](https://begin.com)
-
-A super simple Begin **c**reate **r**ead **u**pdate **d**elete app that exemplifies a basic todo app that uses one static html page and three API endpoints.
-
-## Deploy your own
-
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-crud)
-
-Deploy your own clone of this app to Begin!
+![waiting](https://media2.giphy.com/media/QBd2kLB5qDmysEXre9/giphy.gif?cid=ecf05e4759gmw5ms70lsc0is02sap3wnfybobidow8imst91&rid=giphy.gif&ct=g)
 
 ## Getting started
 
@@ -16,7 +8,4 @@ Deploy your own clone of this app to Begin!
 
 ## Reference
 
-- [Quickstart](https://docs.begin.com/en/guides/quickstart/) - basics on working locally, project structure, deploying, and accessing your Begin app
-- [Creating new routes](https://docs.begin.com/en/functions/creating-new-functions) - basics on expanding the capabilities of your app
-
-Head to [docs.begin.com](https://docs.begin.com/) to learn more!
+- [Architect](https://arc.codes) - basics on working locally, project structure, and deploying.

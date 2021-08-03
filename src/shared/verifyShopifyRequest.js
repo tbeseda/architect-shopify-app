@@ -1,24 +1,19 @@
 const jwt = require('jsonwebtoken');
 
-const verifyShopifyRequest = (handler) => {
-  return async (req, res) => {
-    const token = req.headers.authorization.replace(/Bearer /, '');
+async function verifyShopifyRequest(request) {
+  const token = request.headers.authorization.replace(/Bearer /, '');
 
-    try {
-      const decoded = await jwt.verify(
-        token,
-        process.env.SHOPIFY_API_PRIVATE_KEY
-      );
+  try {
+    const decoded = jwt.verify(token, process.env.SHOPIFY_API_SECRET);
 
-      req.sessionToken = decoded;
-      req.shopDomain = decoded.dest;
-      req.shopName = decoded.dest.replace('https://', '');
+    request.session.sessionToken = decoded;
+    request.session.shopDomain = decoded.dest;
+    request.session.shopName = decoded.dest.replace('https://', '');
 
-      return handler(req, res);
-    } catch (err) {
-      res.status(401).json({ message: err.message });
-    }
-  };
-};
+    return request;
+  } catch (err) {
+    return { status: 401, message: err.message };
+  }
+}
 
-export default verifyShopifyRequest;
+module.exports = verifyShopifyRequest;

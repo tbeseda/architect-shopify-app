@@ -46,7 +46,7 @@ async function handler(req) {
     return {
       statusCode: 302,
       headers: {
-        location: `/admin?shop=${shop}`,
+        location: `/dashboard?shop=${shop}`,
       },
       queryStringParameters: { shop },
     };
