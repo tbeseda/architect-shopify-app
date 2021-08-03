@@ -18,12 +18,12 @@ describe('Shopify Auth', () => {
     expect(sandboxResult).toBe('Sandbox successfully started');
   });
 
-  it('serves an index file at the root', async () => {
+  it.skip('serves an index file at the root', async () => {
     const root = await Axios.get(`${host}/`);
     expect(root).toBeTruthy();
   });
 
-  it('fails authentication without a shop param', async () => {
+  it.skip('fails authentication without a shop param', async () => {
     try {
       await Axios.get(`${host}/auth`);
       throw new Error('Auth should not succeed');
