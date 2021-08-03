@@ -1,13 +1,19 @@
 {
-  "name": "begin-shopify-admin-app",
-  "version": "0.0.0",
+  "name": "architect-shopify-app",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "start": "npx sandbox",
-    "dev": "npm start"
+    "dev": "npm start",
+    "test": "tape 'test/**/*.js'"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
+    "@architect/functions": "^4.0.0",
     "@architect/sandbox": "^4.0.1"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "tape": "^5.3.0"
   }
 }
