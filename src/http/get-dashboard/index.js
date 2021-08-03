@@ -63,4 +63,5 @@ async function handler() {
   };
 }
 
-exports.handler = arc.http.async(handler);
+module.exports = handler;
+module.exports.handler = arc.http.async(handler);

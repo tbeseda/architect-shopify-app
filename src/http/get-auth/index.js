@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const begin = require('@architect/functions');
+const arc = require('@architect/functions');
 
 async function handler(request) {
   const { query } = request;
@@ -24,4 +24,5 @@ async function handler(request) {
   };
 }
 
-exports.handler = begin.http.async(handler);
+module.exports = handler;
+module.exports.handler = arc.http.async(handler);

@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const begin = require('@architect/functions');
+const arc = require('@architect/functions');
 const axios = require('axios').default;
 
 const { SHOPIFY_API_KEY, SHOPIFY_API_SECRET } = process.env;
@@ -12,7 +12,7 @@ function verifyHmac(query) {
     .join('&');
 
   const hash = crypto
-    .createHmac('sha256', SHOPIFY_API_SECRET)
+    .createHmac('sha256', SHOPIFY_API_SECRET || '')
     .update(message)
     .digest('hex');
 
@@ -61,4 +61,5 @@ async function handler(req) {
   }
 }
 
-exports.handler = begin.http.async(handler);
+module.exports = handler;
+module.exports.handler = arc.http.async(handler);

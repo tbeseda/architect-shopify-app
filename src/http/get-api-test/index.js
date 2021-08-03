@@ -7,4 +7,5 @@ async function handler(request) {
   return { json: { success: true } };
 }
 
-exports.handler = arc.http.async(verifyShopifyRequest, handler);
+module.exports = handler;
+module.exports.handler = arc.http.async(verifyShopifyRequest, handler);
