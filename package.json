@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx sandbox",
     "dev": "npm start",
-    "test": "tape 'test/**/*.js'"
+    "test": "tape 'test/**/*.js' | tap-spec-emoji"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "axios": "^0.21.1",
+    "tap-spec-emoji": "^6.1.2",
     "tape": "^5.3.0"
   }
 }
