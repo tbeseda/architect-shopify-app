@@ -1,24 +1,34 @@
-const test = require('tape-catch');
 const Axios = require('axios').default;
 const sandbox = require('@architect/sandbox');
 
 const host = 'http://localhost:3333';
 
-test('sandbox HTTP request', async (t) => {
-  t.plan(4);
+describe('Shopify Auth', () => {
+  let sandboxResult;
 
-  await sandbox.start({ quiet: true });
-  t.ok(true, `sandbox started on ${host}`);
+  beforeEach(async () => {
+    sandboxResult = await sandbox.start({ quiet: true });
+  });
 
-  const root = await Axios.get(`${host}/`);
-  t.ok(root, 'got root');
+  afterEach(async () => {
+    await sandbox.end();
+  });
 
-  try {
-    await Axios.get(`${host}/auth`);
-  } catch (error) {
-    t.ok(error, 'got auth error');
-  }
+  it('starts a sandbox', async () => {
+    expect(sandboxResult).toBe('Sandbox successfully started');
+  });
 
-  await sandbox.end();
-  t.ok(true, 'sandbox ended');
+  it('serves an index file at the root', async () => {
+    const root = await Axios.get(`${host}/`);
+    expect(root).toBeTruthy();
+  });
+
+  it('fails authentication without a shop param', async () => {
+    try {
+      await Axios.get(`${host}/auth`);
+      throw new Error('Auth should not succeed');
+    } catch (error) {
+      expect(error.response.status).toBe(401);
+    }
+  });
 });
