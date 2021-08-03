@@ -11,7 +11,7 @@ describe('Shopify Auth start', () => {
     expect(result.statusCode).toBe(401);
   });
 
-  it('redirects to Shopify Oauth provider', async () => {
+  it('redirects to Shopify OAuth provider', async () => {
     const request = { query: { shop } };
     const result = await getAuth(request);
 
@@ -46,8 +46,6 @@ describe('Shopify Auth callback', () => {
 
     expect(result.statusCode).toBe(302);
     expect(result.headers).toBeInstanceOf(Object);
-    expect(result.headers.location).toContain(
-      `https://${shop}/admin/oauth/authorize`
-    );
+    expect(result.headers.location).toContain(`/dashboard?shop=${shop}`);
   });
 });
