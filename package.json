@@ -5,16 +5,17 @@
   "scripts": {
     "start": "npx sandbox",
     "dev": "npm start",
-    "test": "jest"
+    "test": "tape test/**/*.test.js | tap-spec-emoji"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
     "@architect/functions": "^4.0.0",
     "@architect/sandbox": "^4.0.1",
-    "axios": "^0.21.1"
+    "jsonwebtoken": "^8.5.1",
+    "tiny-json-http": "^7.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "jest": "^27.0.6"
+    "tap-spec-emoji": "^6.1.2",
+    "tape": "^5.3.1"
   }
 }

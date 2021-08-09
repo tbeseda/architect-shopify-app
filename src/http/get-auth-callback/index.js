@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const arc = require('@architect/functions');
-const axios = require('axios').default;
+const tiny = require('tiny-json-http');
 
 const { SHOPIFY_API_KEY, SHOPIFY_API_SECRET } = process.env;
 
@@ -30,17 +30,17 @@ async function handler(req) {
   const { shop, code } = req.query;
 
   try {
-    const accessTokenResponse = await axios.post(
-      `https://${shop}/admin/oauth/access_token`,
-      {
+    const accessTokenResponse = await tiny.post({
+      url: `https://${shop}/admin/oauth/access_token`,
+      data: {
         code,
         client_id: SHOPIFY_API_KEY,
         client_secret: SHOPIFY_API_SECRET,
-      }
-    );
+      },
+    });
 
     const token = (req.session.accessToken =
-      accessTokenResponse.data.access_token);
+      accessTokenResponse.body.access_token);
     console.log(`Token acquired: ${token.slice(0, 10)}...${token.slice(-4)}`);
 
     return {
@@ -51,7 +51,7 @@ async function handler(req) {
       queryStringParameters: { shop },
     };
   } catch (error) {
-    console.error(error.reason);
+    console.error(error);
 
     return {
       statusCode: 500,
