@@ -7,27 +7,27 @@ const { SHOPIFY_API_KEY, SHOPIFY_API_SECRET } = process.env;
 function verifyHmac(query) {
   const { hmac, ...params } = query;
 
-  const message = Object.keys(params)
+  const querystring = Object.keys(params)
     .map((key) => `${key}=${params[key]}`)
     .join('&');
 
   const hash = crypto
     .createHmac('sha256', SHOPIFY_API_SECRET || '')
-    .update(message)
+    .update(querystring)
     .digest('hex');
 
   return hmac === hash;
 }
 
-async function handler(req) {
-  const valid = verifyHmac(req.query);
+async function handler(request) {
+  const valid = verifyHmac(request.query);
   if (!valid)
     return {
       statusCode: 401,
       message: 'Invalid signature!',
     };
 
-  const { shop, code } = req.query;
+  const { shop, code } = request.query;
 
   try {
     const accessTokenResponse = await tiny.post({
@@ -39,8 +39,9 @@ async function handler(req) {
       },
     });
 
-    const token = (req.session.accessToken =
+    const token = (request.session.token =
       accessTokenResponse.body.access_token);
+
     console.log(`Token acquired: ${token.slice(0, 10)}...${token.slice(-4)}`);
 
     return {

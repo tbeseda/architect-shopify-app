@@ -9,7 +9,7 @@ test('fails authentication without a shop param', async (t) => {
   const request = { query: {} };
   const result = await getAuth(request);
 
-  t.equal(result.statusCode, 401);
+  t.equal(result.statusCode, 401, 'sends 401 unauthorized');
 });
 
 test('redirects to Shopify OAuth provider', async (t) => {

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx sandbox",
     "dev": "npm start",
-    "test": "tape test/**/*.test.js | tap-spec"
+    "test": "tape -r dotenv/config test/**/*.test.js | tap-spec"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
@@ -15,6 +15,7 @@
     "tiny-json-http": "^7.3.0"
   },
   "devDependencies": {
+    "nock": "^13.1.1",
     "tap-spec": "^2.2.2",
     "tape": "^5.3.1"
   }
