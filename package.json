@@ -11,6 +11,7 @@
     "@architect/architect": "^9.0.0",
     "@architect/functions": "^4.0.0",
     "@architect/sandbox": "^4.0.1",
+    "common-tags": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "tiny-json-http": "^7.3.0"
   },
