@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+    <title>Shopify App</title>
+    <style>
+      input:required {
+        outline: none !important;
+      }
+      input:required:invalid:focus {
+        box-shadow: 0 0 5px red;
+      }
+      input:required:valid {
+        box-shadow: 0 0 5px var(--color-secondary);
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopify App</title>
-</head>
-
-<body>
-  <a href="/auth">auth</a>
-</body>
-
+  <body>
+    <header>
+      <h1>Serverless Shopify Admin App</h1>
+      <h3>
+        Built with <a href="https://arc.codes" target="_blank">Architect</a>
+      </h3>
+    </header>
+    <main>
+      <section>
+        <form id="install" action="/auth" method="get">
+          <p>
+            Enter your shop URL <small>(with .myshopify.com)</small> to install
+          </p>
+          <label for="shop-name">Shop name:</label>
+          <input
+            name="shop"
+            id="shop-name"
+            type="text"
+            placeholder="my-rad-shop.myshopify.com"
+            size="30"
+            pattern=".+\.myshopify\.com"
+            title='Your complete shop name ending with ".myshopify.com"'
+            required
+          />
+          <button type="submit">Install</button>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>
