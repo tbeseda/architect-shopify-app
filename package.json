@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx sandbox",
     "dev": "npm start",
-    "test": "tape -r dotenv/config test/**/*.test.js | tap-spec"
+    "test": "tap --100 --reporter=nyan --nyc-arg=--temp-dir=./temp/.nyc_output --node-arg=--require=dotenv/config"
   },
   "dependencies": {
     "@architect/architect": "^9.0.0",
@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "nock": "^13.1.1",
-    "tap-spec": "^2.2.2",
-    "tape": "^5.3.1"
+    "tap": "^15.0.9"
   }
 }

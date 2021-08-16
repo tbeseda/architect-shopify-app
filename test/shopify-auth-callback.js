@@ -1,4 +1,4 @@
-const test = require('tape');
+const { test } = require('tap');
 const crypto = require('crypto');
 const nock = require('nock');
 
@@ -53,4 +53,15 @@ test('acquires a permanent access token after validation', async (t) => {
     `/dashboard?shop=${FAKE_SHOP}`,
     'redirects to dashboard with shop'
   );
+});
+
+test('handles Shopify server failure', async (t) => {
+  t.plan(2);
+
+  nock(`https://${FAKE_SHOP}`).post('/admin/oauth/access_token').reply(500);
+
+  const result = await getAuthCallback(request);
+
+  t.equal(result.statusCode, 500, 'sends Shopify status');
+  t.equal(result.message, "Couldn't retrieve access token!");
 });

@@ -1,4 +1,4 @@
-const test = require('tape');
+const { test } = require('tap');
 const getAuth = require('../src/http/get-auth');
 
 const shop = 'test-shop.myshopify.com';
@@ -20,7 +20,7 @@ test('redirects to Shopify OAuth provider', async (t) => {
 
   t.equal(result.statusCode, 302, 'sends redirect status');
   t.ok(result.headers, 'headers exist');
-  t.true(
+  t.ok(
     result.headers.location.indexOf(`https://${shop}/admin/oauth/authorize`) ===
       0,
     'redirects to Shopify OAuth provider'

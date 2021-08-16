@@ -12,7 +12,7 @@ function verifyHmac(query) {
     .join('&');
 
   const hash = crypto
-    .createHmac('sha256', SHOPIFY_API_SECRET || '')
+    .createHmac('sha256', SHOPIFY_API_SECRET)
     .update(querystring)
     .digest('hex');
 
@@ -52,8 +52,6 @@ async function handler(request) {
       queryStringParameters: { shop },
     };
   } catch (error) {
-    console.error(error);
-
     return {
       statusCode: 500,
       message: "Couldn't retrieve access token!",

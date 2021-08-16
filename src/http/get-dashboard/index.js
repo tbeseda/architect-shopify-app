@@ -9,6 +9,7 @@ async function handler() {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
         <title>Shopify App</title>
         <script src="https://unpkg.com/@shopify/app-bridge@2"></script>
         <script src="https://unpkg.com/@shopify/app-bridge-utils@2"></script>
@@ -45,7 +46,12 @@ async function handler() {
       </head>
 
       <body>
-        <h1>Loading...</h1>
+        <header>
+          <h1>Shopify App</h1>
+        </header>
+        <main>
+          <section></section>
+        </main>
       </body>
     </html>
   `;
